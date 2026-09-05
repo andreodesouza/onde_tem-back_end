@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from core.view import CadastroView
 from django.contrib import admin
 from django.urls import path
 from rest_framework_simplejwt.views import (
@@ -26,6 +27,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    
+    # Novas rotas de cadastro
+    path('api/cadastro/usuario/', CadastroView.as_view(), name='cadastro_usuario'),
+    path('api/cadastro/empresa/', CadastroView.as_view(), name='cadastro_empresa'),
 ]
 
 
